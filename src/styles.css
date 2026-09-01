@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-raised: var(--app-raised);
+  --color-fg: var(--app-fg);
+  --color-muted: var(--app-muted);
+  --color-faint: var(--app-faint);
+  --color-line: var(--app-line);
+  --color-magenta: var(--app-magenta);
+  --color-cyan: var(--app-cyan);
+  --color-chrome: var(--app-chrome);
+  --color-ok: var(--app-ok);
+  --color-danger: var(--app-danger);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-window: var(--app-shadow);
+}
+
+:root {
+  --app-bg: #efe2fb;
+  --app-surface: #fff7ff;
+  --app-raised: #f4e9ff;
+  --app-fg: #2a1040;
+  --app-muted: #5c3a72;
+  --app-faint: #8a6a9a;
+  --app-line: color-mix(in oklab, #2a1040 18%, transparent);
+  --app-magenta: #9d1768;
+  --app-cyan: #0e7490;
+  --app-chrome: #d9c4f0;
+  --app-ok: #0f766e;
+  --app-danger: #b42318;
+  --app-shadow: 8px 12px 0 color-mix(in oklab, #2a1040 22%, transparent);
+  --grid-line: color-mix(in oklab, #9d1768 22%, transparent);
+}
+
+.dark {
+  --app-bg: #0d0520;
+  --app-surface: #170a2c;
+  --app-raised: #22113c;
+  --app-fg: #f4e8ff;
+  --app-muted: #cbb6de;
+  --app-faint: #9b84b3;
+  --app-line: color-mix(in oklab, #01cdfe 28%, transparent);
+  --app-magenta: #ff71ce;
+  --app-cyan: #01cdfe;
+  --app-chrome: #3a1860;
+  --app-ok: #5eead4;
+  --app-danger: #fb7185;
+  --app-shadow: 0 0 0 1px #ff71ce, 8px 12px 0 #01cdfe55;
+  --grid-line: color-mix(in oklab, #01cdfe 26%, transparent);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--app-bg);
+    color: var(--app-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--app-cyan);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.desktop-grid {
+  background-color: var(--app-bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    radial-gradient(
+      1200px 480px at 50% 120%,
+      color-mix(in oklab, var(--app-magenta) 22%, transparent),
+      transparent 70%
+    );
+  background-size:
+    48px 48px,
+    48px 48px,
+    auto;
+}
+
+.scanlines::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    color-mix(in oklab, #000 12%, transparent) 3px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.16;
+}
+
+.dark .scanlines::before {
+  mix-blend-mode: overlay;
+  opacity: 0.1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanlines::before {
+    display: none;
+  }
+}
+
+.bevel {
+  box-shadow:
+    inset 1px 1px 0 color-mix(in oklab, #fff 55%, transparent),
+    inset -1px -1px 0 color-mix(in oklab, #000 25%, transparent);
+}
+
+.dark .bevel {
+  box-shadow:
+    inset 1px 1px 0 color-mix(in oklab, var(--app-cyan) 35%, transparent),
+    inset -1px -1px 0 color-mix(in oklab, var(--app-magenta) 35%, transparent);
+}
+
+.cp-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 220px;
+}

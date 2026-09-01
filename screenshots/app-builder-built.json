@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "SMP N 4 SATAP MT — Portal CP",
+      "hasCanvas": false,
+      "bodyTextLen": 497,
+      "bodyTextHash": "2a90ec65cd362c0c8c01e835b573ac5964529eb1dccf1728cc04fde5d41e878d",
+      "bodyTextPrefix": "Loncat ke hasil PORTAL CAPAIAN PEMBELAJARAN SMP N 4 SATAP MT — C",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "SMP N 4 SATAP MT — Portal CP",
+      "hasCanvas": false,
+      "bodyTextLen": 286,
+      "bodyTextHash": "7c8692a84a63192dc33e986e2b9cfeec756e9660f809dc3390de63f81f2b8cb2",
+      "bodyTextPrefix": "Loncat ke hasil PORTAL CAPAIAN PEMBELAJARAN SMP N 4 SATAP MT — F",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
